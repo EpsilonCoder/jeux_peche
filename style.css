@@ -1,0 +1,147 @@
+#water {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 255, 255, 0.7),
+    rgba(0, 0, 50, 0.9)
+  );
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 70%;
+}
+
+#sky{
+  position:fixed;
+  left:0; top:0;
+  width:100%; height:30%;
+  background:linear-gradient(to bottom, white, blue 40%);
+}
+
+#boat {
+  width: 250px;
+  height: 80px;
+  background: linear-gradient(to bottom, #420, #753);
+  left: calc(50% - 125px);
+  bottom: calc(70% - 55px);
+  position: fixed;
+  border-radius: 0% 100% 50% 50% / 0% 0% 100% 100%;
+  animation-name: float;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+  transform: rotate(3deg);
+  animation-timing-funtion: linear;
+  border: 3px solid #420;
+}
+
+@keyframes float {
+  50% {
+    transform: rotate(-3deg);
+  }
+}
+
+#flag {
+  position: absolute;
+  width: 90px;
+  height: auto;
+  left: 10%;
+  bottom: calc(100% + 50px);
+  background: #eee;
+  border: 2px solid purple;
+}
+
+#flag::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 50px;
+  background: #420;
+  left: calc(50% - 4px);
+  top: 100%;
+}
+
+.fish {
+  position: absolute;
+  width: 55px;
+  height: 32px;
+  border: 50%;
+  left: 101vw;
+  top: 0;
+  transition: left 0.1s, top 1s;
+  transition-timing-function: linear;
+}
+
+#rod {
+  position: fixed;
+  width: 7px;
+  height: 50px;
+  background: black;
+  left: calc(50% + 60px);
+  top: calc(30% - 70px);
+  transition: height 0.1s;
+  transition-timing-function: linear;
+  border-radius:10px;
+}
+
+#rod::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(to bottom, black, #420, #420);
+  transform-origin: 50% 0;
+  transform: rotate(30deg);
+  z-index: -1;
+  border-radius:15px;
+}
+
+#rod::after {
+  content: "";
+  position: absolute;
+  width: 400%;
+  height: 40px;
+  background: transparent;
+  left: -6px;
+  bottom: -5px;
+  border-bottom: 7px solid black;
+  border-right: 1px solid transparent;
+  border-left: 7px solid transparent;
+  border-radius: 50%;
+}
+
+
+#flag {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "fish1 fish1val"
+    "fish2 fish2val"
+    "fish3 fish3val"
+    "fish4 fish4val";
+}
+
+.fish1 { 
+  grid-area: fish1; 
+}
+
+.fish1, .fish2, .fish3, .fish4{
+  width:25px; height:auto;
+  position:relative;
+}
+
+#fish1val { grid-area: fish1val; }
+
+.fish2 { grid-area: fish2; }
+
+.fish3 { grid-area: fish3; }
+
+#fish2val { grid-area: fish2val; }
+
+#fish3val { grid-area: fish3val; }
+
+.fish4 { grid-area: fish4; }
+
+#fish4val { grid-area: fish4val; }
